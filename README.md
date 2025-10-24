@@ -70,7 +70,7 @@ Modelo: gemini-2.0-flash-001
 
 
 ### Acessos
-URL da aplicação: []
+URL da aplicação: https://geradoraulasia.netlify.app/
 
 Supabase: https://prjbkoketsphqasvintb.supabase.co
 
