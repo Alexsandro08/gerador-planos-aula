@@ -28,7 +28,7 @@ VITE_GEMINI_API_KEY=sua_chave_gemini
 
 ### Onde obter:
 
-- Supabase URL/Key: Settings → API no painel do Supabase
+- Supabase URL/Key: Settings → API Keys no painel do Supabase
 
 - Gemini API Key: Google AI Studio → Get API Key
 
