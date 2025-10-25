@@ -9,7 +9,7 @@
 
 ### Instalação
 ```bash
-git clone https://github.com/seu-usuario/gerador-planos-aula.git
+git clone https://github.com/Alexsandro08/gerador-planos-aula.git
 cd gerador-planos-aula
 ```
 ```bash
