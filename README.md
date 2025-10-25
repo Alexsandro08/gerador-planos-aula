@@ -7,10 +7,16 @@
 - Conta no Google AI Studio
 - Conta no Supabase
 
-### 1. Instalação
+### Instalação
 ```bash
+git clone https://github.com/seu-usuario/gerador-planos-aula.git
+cd gerador-planos-aula
+```
+```bash
+### Instalar dependências
 npm install
-
+```
+```bash
 ### Configuração das Variáveis de Ambiente
 Crie um arquivo .env na raiz:
 
@@ -19,7 +25,14 @@ VITE_SUPABASE_URL=sua_url_supabase
 VITE_SUPABASE_KEY=sua_chave_supabase
 VITE_GEMINI_API_KEY=sua_chave_gemini
 ```
-------------------
+
+### Onde obter:
+
+- Supabase URL/Key: Settings → API no painel do Supabase
+
+- Gemini API Key: Google AI Studio → Get API Key
+
+
 # Execução
 ```bash
 npm run dev
@@ -50,27 +63,46 @@ Modelo: gemini-2.0-flash-001
 
 * Motivo: Rápido, suporte a JSON, gratuito na cota inicial
 
-### Alternativas testadas: gemini-1.0-pro, gemini-1.5-flash
+### Alternativas testadas: Alternativas testadas: gemini-1.0-pro (404), gemini-1.5-flash (indisponível)
 
 ### Arquitetura
-[ X ] Frontend → Supabase Edge Function → Gemini API → Supabase Database
+- Frontend → Supabase Edge Function → Gemini API → Supabase Database
 
-[ X ] Edge Functions para evitar problemas de CORS
+- Edge Functions para evitar problemas de CORS
 
-[ X ]TypeScript para melhor manutenibilidade
+- TypeScript para melhor tipagem 
 -----------------------
 
-<h1> Desafios e Soluções </h1>
+ ### Estrutura de Dados
+- Tabela única lesson_plans com campo JSON para resposta da IA
 
-[ X ] CORS na Edge Function: Configuração manual de headers
+- Campos obrigatórios: tema, série, matéria
 
-[ X ] Rate Limiting Gemini: Tratamento de erro e fallback
+- Campos opcionais: duração, número de alunos, objetivos
 
-[ X ] Tipagem TypeScript: Definição de interfaces para dados
+-------------------------
 
 
+### Desafios Encontrados e Soluções
+  <h3>Modelo Gemini Indisponível</h3>
+  <ul>
+      <li>Problema: gemini-1.0-pro retornando 404</li>
+      <li>Solução: Listagem de modelos disponíveis e uso do gemini-2.0-flash-001</li>
+  </ul>
+  <h3>Autenticação na Edge Function</h3>
+   <ul>
+      <li>Erro 401 "Missing authorization header"4</li>
+      <li>Solução: Adição do header Authorization: Bearer {SUPABASE_KEY}</li>
+  </ul>
+  <h3>CORS na Edge Function</h3>
+   <ul>
+      <li>Problema: Bloqueio de requisições pelo navegador</li>
+      <li>Solução: Headers CORS configurados manualmente na function</li>
+  </ul>
+
+----------------------
 ### Acessos
-URL da aplicação: []
+URL da aplicação: https://geradoraulasia.netlify.app/
 
 Supabase: https://prjbkoketsphqasvintb.supabase.co
 

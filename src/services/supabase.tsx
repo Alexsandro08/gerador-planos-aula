@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import type { FormData, PlanoAulaResponse, PlanoSalvo } from '../@types';
 
-const supabaseUrl = 'https://prjbkoketsphqasvintb.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByamJrb2tldHNwaHFhc3ZpbnRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEzMzY1NDEsImV4cCI6MjA3NjkxMjU0MX0.nFm6YIjW_GVq3lP0Vr-JZ4T3vpDttsnBKNOPHR_Uu9s';
+// ✅ CORRETO - Usando import.meta.env do Vite
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
