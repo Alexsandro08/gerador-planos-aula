@@ -21,9 +21,9 @@ npm install
 Crie um arquivo .env na raiz:
 
 env
-VITE_SUPABASE_URL=sua_url_supabase
-VITE_SUPABASE_KEY=sua_chave_supabase
-VITE_GEMINI_API_KEY=sua_chave_gemini
+SUPABASE_URL=sua_url_supabase
+SUPABASE_KEY=sua_chave_supabase
+GEMINI_API_KEY=sua_chave_gemini
 ```
 
 ### Onde obter:
