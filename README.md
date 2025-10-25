@@ -61,7 +61,7 @@ CREATE TABLE lesson_plans (
 * Escolha do Modelo de IA 
 Modelo: gemini-2.0-flash-001
 
-* Motivo: Rápido, suporte a JSON, gratuito na cota inicial
+* Motivo: Rápido, suporte a JSON, gratuito
 
 ### Alternativas testadas: Alternativas testadas: gemini-1.0-pro (404), gemini-1.5-flash (indisponível)
 
