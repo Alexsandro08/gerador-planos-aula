@@ -91,7 +91,7 @@ Modelo: gemini-2.0-flash-001
   </ul>
   <h3>Autenticação na Edge Function</h3>
    <ul>
-      <li>Erro 401 "Missing authorization header"4</li>
+      <li>Erro 401 "Missing authorization header"</li>
       <li>Solução: Adição do header Authorization: Bearer {SUPABASE_KEY}</li>
   </ul>
   <h3>CORS na Edge Function</h3>
