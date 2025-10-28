@@ -1,6 +1,6 @@
 # Gerador de Planos de Aula com IA
 
-## Instruções de Setup
+## Instruções de configuração
 
 ### Pré-requisitos
 - Node.js 18+
@@ -16,11 +16,10 @@ cd gerador-planos-aula
 ### Instalar dependências
 npm install
 ```
-```bash
+
 ### Configuração das Variáveis de Ambiente
 Crie um arquivo .env na raiz:
-
-env
+```env
 VITE_SUPABASE_URL=sua_url_supabase
 VITE_SUPABASE_KEY=sua_chave_supabase
 VITE_GEMINI_API_KEY=sua_chave_gemini
@@ -80,6 +79,46 @@ Alternativas testadas:gemini-1.0-pro (404), gemini-1.5-flash (indisponível)
 
 - Campos opcionais: duração, número de alunos, objetivos
 
+### 📊 DIAGRAMA 
+
+
+<img width="588" height="1585" alt="Untitled diagram-2025-10-28-015119" src="https://github.com/user-attachments/assets/eb60b9b1-aad7-450e-86fd-37c8dd01164f" />
+
+## Descrição da Modelagem
+
+### Tabela: `lesson_plans`
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| `id` | UUID | ✅ | Identificador único |
+| `created_at` | TIMESTAMP | ✅ | Data de criação |
+| `user_id` | UUID | ❌ | Referência ao usuário |
+| `theme` | TEXT | ✅ | Tema da aula |
+| `grade_level` | TEXT | ✅ | Série/ano |
+| `subject` | TEXT | ✅ | Matéria |
+| `duration_minutes` | INTEGER | ❌ | Duração em minutos |
+| `student_count` | INTEGER | ❌ | Número de alunos |
+| `learning_objectives` | TEXT | ❌ | Objetivos de aprendizagem |
+| `ai_response` | JSONB | ✅ | Resposta completa da IA |
+| `ai_model` | TEXT | ✅ | Modelo de IA utilizado |
+| `status` | TEXT | ✅ | Status do plano |
+
+## Justificativas Técnicas
+
+### Escolha do JSONB:
+- ✅ Armazena resposta complexa da IA de forma flexível
+- ✅ Permite consultas no Supabase
+- ✅ Evolução do schema sem migrations
+
+### Campos Opcionais:
+- `user_id`: Permite planos sem autenticação (para demo) 
+- `student_count`/`learning_objectives`: Dados complementares
+
+### Status do Plano:
+- `draft` - Rascunho
+- `generating` - Gerando com IA  
+- `completed` - Completo e salvo
+- `error` - Erro na geração
+
 -------------------------
 
 
@@ -101,7 +140,7 @@ Alternativas testadas:gemini-1.0-pro (404), gemini-1.5-flash (indisponível)
   </ul>
 
 ----------------------
-### Acessos
+### 🌐 Acessos
 URL da aplicação: https://geradoraulasia.netlify.app/
 
 Supabase: https://prjbkoketsphqasvintb.supabase.co
